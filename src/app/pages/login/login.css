@@ -81,6 +81,7 @@ input[type=password] {
     align-items: center;
     gap: 10px;
     margin: 20px 0;
+    text-align: center;
 }
 
 button {
@@ -95,10 +96,11 @@ button {
 }
 
 button:hover {
-    background: #349bd6;
+    background: #063a6fd8
 }
 
 a {
     color: #0b5ed7;
     text-decoration: none;
+
 }

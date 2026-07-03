@@ -1,1 +1,105 @@
-<p>dashboard works!</p>
+<nav class="navbar">
+    <div class="logo">
+        <span class="emoji">🌱</span> MentalHealth Connect
+    </div>
+
+    <button class="menu-toggle" (click)="toggleMenu()" [class.open]="isMenuOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <ul class="nav-links" [class.show]="isMenuOpen">
+        <li><a routerLink="/home" (click)="toggleMenu()">Home</a></li>
+        <li><a routerLink="/dashboard" (click)="toggleMenu()" class="active">Dashboard</a></li>
+        <li><a routerLink="/biblioteca" (click)="toggleMenu()">Biblioteca</a></li>
+        <li><a routerLink="/atendimentos" (click)="toggleMenu()">Atendimentos</a></li>
+        <li><a routerLink="/perfil" (click)="toggleMenu()">Perfil</a></li>
+        <li><a routerLink="/login" (click)="toggleMenu()">Logout</a></li>
+    </ul>
+</nav>
+
+<main class="container">
+
+    <h2 class="page-title">Painel de Controle</h2>
+
+    <section class="kpi-grid">
+        <div class="kpi-card">
+            <span class="kpi-icon">👥</span>
+            <div class="kpi-info">
+                <h4>Pacientes Totais</h4>
+                <p>128</p>
+            </div>
+        </div>
+        <div class="kpi-card">
+            <span class="kpi-icon">📅</span>
+            <div class="kpi-info">
+                <h4>Sessões do Mês</h4>
+                <p>42</p>
+            </div>
+        </div>
+        <div class="kpi-card">
+            <span class="kpi-icon">⭐</span>
+            <div class="kpi-info">
+                <h4>Avaliação Média</h4>
+                <p>4.9</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="chart-section">
+        <h3>Tendência de Atendimentos</h3>
+        <div class="chart-container">
+            <svg viewBox="0 0 500 150" class="line-chart">
+                <path fill="none" stroke="#0f5b9e" stroke-width="4"
+                    d="M0,120 L100,80 L200,100 L300,40 L400,60 L500,20" />
+                <circle cx="100" cy="80" r="5" fill="#063b6f" />
+                <circle cx="300" cy="40" r="5" fill="#063b6f" />
+                <circle cx="500" cy="20" r="5" fill="#063b6f" />
+            </svg>
+            <div class="chart-labels">
+                <span>Semana 1</span>
+                <span>Semana 2</span>
+                <span>Semana 3</span>
+                <span>Semana 4</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="agenda-section">
+        <h3>Próximos Atendimentos</h3>
+        <div class="table-wrapper">
+            <table class="agenda-table">
+                <thead>
+                    <tr>
+                        <th>Horário</th>
+                        <th>Paciente</th>
+                        <th>Tipo</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>09:00</td>
+                        <td>Ana Clara Silva</td>
+                        <td>Online</td>
+                        <td><span class="badge status-confirmado">Confirmado</span></td>
+                    </tr>
+                    <tr>
+                        <td>10:30</td>
+                        <td>Carlos Eduardo</td>
+                        <td>Presencial</td>
+                        <td><span class="badge status-confirmado">Confirmado</span></td>
+                    </tr>
+                    <tr>
+                        <td>14:00</td>
+                        <td>Beatriz Oliveira</td>
+                        <td>Online</td>
+                        <td><span class="badge status-pendente">Aguardando</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</main>
