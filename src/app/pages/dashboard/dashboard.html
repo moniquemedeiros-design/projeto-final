@@ -3,7 +3,7 @@
         <span class="emoji">🌱</span> MentalHealth Connect
     </div>
 
-    <button class="menu-toggle" (click)="toggleMenu()" [class.open]="isMenuOpen">
+    <button class="menu-toggle" (click)="toggleMenu()" [class.open]="isMenuOpen" aria-label="Abrir menu">
         <span></span>
         <span></span>
         <span></span>
@@ -48,20 +48,24 @@
     </section>
 
     <section class="chart-section">
-        <h3>Tendência de Atendimentos</h3>
-        <div class="chart-container">
-            <svg viewBox="0 0 500 150" class="line-chart">
-                <path fill="none" stroke="#0f5b9e" stroke-width="4"
-                    d="M0,120 L100,80 L200,100 L300,40 L400,60 L500,20" />
-                <circle cx="100" cy="80" r="5" fill="#063b6f" />
-                <circle cx="300" cy="40" r="5" fill="#063b6f" />
-                <circle cx="500" cy="20" r="5" fill="#063b6f" />
-            </svg>
-            <div class="chart-labels">
-                <span>Semana 1</span>
-                <span>Semana 2</span>
-                <span>Semana 3</span>
-                <span>Semana 4</span>
+        <h3>Distribuição por Categoria de Atendimento</h3>
+
+        <div class="pie-chart-wrapper">
+            <div class="pie-chart"></div>
+
+            <div class="chart-legend">
+                <div class="legend-item">
+                    <span class="color-box azul-prim"></span>
+                    <span class="legend-text">Ansiedade (50%)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="color-box azul-med"></span>
+                    <span class="legend-text">Depressão (30%)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="color-box azul-clar"></span>
+                    <span class="legend-text">Outros (20%)</span>
+                </div>
             </div>
         </div>
     </section>

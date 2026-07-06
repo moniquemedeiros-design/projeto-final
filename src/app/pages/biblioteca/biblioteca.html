@@ -1,1 +1,42 @@
-<p>biblioteca works!</p>
+<nav class="navbar">
+    <div class="logo"><span class="emoji">🌱</span> MentalHealth Connect</div>
+    <button class="menu-toggle" (click)="toggleMenu()" [class.open]="isMenuOpen">
+        <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" [class.show]="isMenuOpen">
+        <li><a routerLink="/home" (click)="toggleMenu()">Home</a></li>
+        <li><a routerLink="/dashboard" (click)="toggleMenu()">Dashboard</a></li>
+        <li><a routerLink="/biblioteca" (click)="toggleMenu()" class="active">Biblioteca</a></li>
+        <li><a routerLink="/atendimentos" (click)="toggleMenu()">Atendimentos</a></li>
+        <li><a routerLink="/perfil" (click)="toggleMenu()">Perfil</a></li>
+        <li><a routerLink="/login" (click)="toggleMenu()">Logout</a></li>
+    </ul>
+</nav>
+
+<main class="container">
+    <h2 class="page-title">Biblioteca de Apoio</h2>
+    <p class="page-subtitle">Explore conteúdos selecionados para o seu bem-estar mental.</p>
+
+    <section class="categories-bar">
+        <button *ngFor="let cat of categorias" class="category-btn" [class.active]="categoriaAtiva === cat"
+            (click)="filtrarCategoria(cat)">
+            {{ cat }}
+        </button>
+    </section>
+
+    <section class="library-grid" *ngIf="arquivosFiltrados.length > 0">
+        <div class="library-card" *ngFor="let arquivo of arquivosFiltrados">
+            <div class="card-header">
+                <span class="card-emoji">{{ arquivo.icone }}</span>
+                <span class="card-badge">{{ arquivo.categoria }}</span>
+            </div>
+            <h3>{{ arquivo.titulo }}</h3>
+            <p>{{ arquivo.descricao }}</p>
+            <button class="download-btn">Acessar Conteúdo</button>
+        </div>
+    </section>
+
+    <div *ngIf="arquivosFiltrados.length === 0" class="empty-state">
+        <p>Nenhum material encontrado ou conectando ao servidor...</p>
+    </div>
+</main>

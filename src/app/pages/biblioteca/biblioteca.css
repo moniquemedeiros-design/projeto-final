@@ -1,0 +1,235 @@
+/* ==========================================================================
+   VARIÁVEIS GLOBAIS E IDENTIDADE VISUAL (Cores Sólidas sem Transparência)
+   ========================================================================== */
+:root {
+    --azul-principal: #0f5b9e;
+    /* Azul oficial da logo */
+    --azul-escuro: #063b6f;
+    /* Azul escuro do botão entrar */
+    --branco: #ffffff;
+    --bg-fundo: #f4f8fb;
+    --radius: 25px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-fundo) !important;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* ==========================================================================
+   NAVBAR (BARRA SUPERIOR) COM DEGRADÊ SÓLIDO
+   ========================================================================== */
+.navbar {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    /* Cor sólida de segurança caso o navegador falhe no linear-gradient */
+    background-color: #0f5b9e !important;
+    background: linear-gradient(135deg, #0f5b9e 0%, #035e39 100%) !important;
+    padding: 15px 5%;
+    color: white !important;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ==========================================================================
+   BOTÃO HAMBÚRGUER (LINHAS BRANCAS)
+   ========================================================================== */
+.menu-toggle {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 22px;
+    background-color: transparent !important;
+    /* O botão em si não tem fundo, apenas as linhas internas */
+    border: none !important;
+    cursor: pointer;
+    padding: 0;
+}
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background-color: #ffffff !important;
+    /* Força as linhas a serem brancas sólidas */
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ==========================================================================
+   MENU GAVETA LATERAL (TOTALMENTE OPACO / SEM TRANSPARÊNCIA)
+   ========================================================================== */
+.nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    /* Degradê 100% opaco e sólido para cobrir as imagens do carrossel por baixo */
+    background-color: #0f5b9e !important;
+    background: linear-gradient(135deg, #0f5b9e 0%, #035e39 100%) !important;
+    width: 220px;
+    list-style: none;
+    padding: 15px;
+    margin: 0;
+    border-radius: 0 0 0 var(--radius);
+    box-shadow: -4px 4px 15px rgba(0, 0, 0, 0.3) !important;
+    z-index: 9999 !important;
+    /* Fica sempre à frente de tudo */
+}
+
+.nav-links.show {
+    display: flex !important;
+}
+
+.nav-links li a {
+    color: #ffffff !important;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    font-weight: 500;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    /* Fundo ligeiramente mais escuro para os links se destacarem */
+    margin-bottom: 5px;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: #ffffff !important;
+    background-color: #063b6f !important;
+    /* Fundo sólido ao passar o rato */
+}
+
+.container {
+    padding: 20px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-title {
+    color: var(--azul-escuro);
+    font-size: 1.8rem;
+    margin: 30px 0 5px;
+}
+
+.page-subtitle {
+    color: #666;
+    margin: 0 0 35px 0;
+    font-size: 1rem;
+}
+
+.categories-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 35px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+.category-btn {
+    background-color: var(--branco);
+    color: var(--azul-principal);
+    border: 2px solid var(--azul-principal) !important;
+    padding: 8px 22px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.category-btn:hover,
+.category-btn.active {
+    background-color: var(--azul-principal) !important;
+    color: var(--branco) !important;
+}
+
+.library-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.library-card {
+    background-color: var(--branco) !important;
+    border-radius: var(--radius);
+    padding: 25px;
+    box-shadow: 0 8px 24px rgba(6, 59, 111, 0.04);
+    border: 2px solid #eef4f8;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.card-emoji {
+    font-size: 2.2rem;
+}
+
+.card-badge {
+    background-color: #f1f5f9;
+    color: var(--azul-escuro);
+    padding: 4px 14px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.library-card h3 {
+    color: var(--azul-escuro);
+    margin: 0 0 10px 0;
+    font-size: 1.25rem;
+}
+
+.library-card p {
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0 0 20px 0;
+    flex-grow: 1;
+}
+
+.download-btn {
+    background-color: var(--azul-principal) !important;
+    color: var(--branco) !important;
+    border: none !important;
+    padding: 12px;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+
+.download-btn:hover {
+    background-color: var(--azul-escuro) !important;
+}
+
+.empty-state {
+    text-align: center;
+    color: #64748b;
+    padding: 50px 20px;
+    font-size: 1.1rem;
+}

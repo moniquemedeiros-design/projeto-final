@@ -1,73 +1,64 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core'; // 👈 Adicionado o ChangeDetectorRef
+import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router'; // <-- Importação crucial para o menu funcionar
 
 @Component({
     selector: 'app-home',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, RouterModule], // Soluciona o redirecionamento incorreto do menu
     templateUrl: './home.html',
     styleUrls: ['./home.css']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-    currentIndex: number = 0;
-    totalSlides: number = 3;
-    carouselInterval: any;
+    // Controle do Menu Hambúrguer
     isMenuOpen: boolean = false;
 
-    // 👈 Injetamos o detector de mudanças aqui no construtor
+    // Controle do Carrossel
+    currentIndex: number = 0;
+    totalSlides: number = 3;
+    intervalId: any;
+
     constructor(private cdr: ChangeDetectorRef) { }
 
     ngOnInit(): void {
-        this.startCarouselAutoPlay();
+        // Inicia o carrossel automático ao carregar a página (passando a cada 3 segundos)
+        this.startCarousel();
     }
 
     ngOnDestroy(): void {
-        this.clearCarouselAutoPlay();
+        // Limpa o temporizador quando o usuário sai da página para não travar a memória
+        this.clearCarousel();
     }
 
-    nextSlide(): void {
-        if (this.currentIndex < this.totalSlides - 1) {
-            this.currentIndex++;
-        } else {
-            this.currentIndex = 0;
-        }
-
-        // 👈 Força o Angular a olhar para a tela e atualizar o slide visualmente
-        this.cdr.detectChanges();
-        this.resetAutoPlay();
-    }
-
-    prevSlide(): void {
-        if (this.currentIndex > 0) {
-            this.currentIndex--;
-        } else {
-            this.currentIndex = this.totalSlides - 1;
-        }
-
-        // 👈 Força o Angular a olhar para a tela e atualizar o slide visualmente
-        this.cdr.detectChanges();
-        this.resetAutoPlay();
-    }
-
-    startCarouselAutoPlay(): void {
-        this.carouselInterval = setInterval(() => {
-            this.nextSlide();
-        }, 5000);
-    }
-
-    clearCarouselAutoPlay(): void {
-        if (this.carouselInterval) {
-            clearInterval(this.carouselInterval);
-        }
-    }
-
-    resetAutoPlay(): void {
-        this.clearCarouselAutoPlay();
-        this.startCarouselAutoPlay();
-    }
-
+    // Alterna a abertura do menu lateral
     toggleMenu(): void {
         this.isMenuOpen = !this.isMenuOpen;
-        this.cdr.detectChanges(); // Garante que o menu hambúrguer também abra na hora
+        this.cdr.detectChanges();
+    }
+
+    // Inicia o timer do carrossel
+    startCarousel(): void {
+        this.intervalId = setInterval(() => {
+            this.nextSlide();
+        }, 3000);
+    }
+
+    // Limpa o timer do carrossel
+    clearCarousel(): void {
+        if (this.intervalId) {
+            clearInterval(this.intervalId);
+        }
+    }
+
+    // Vai para o próximo slide
+    nextSlide(): void {
+        this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
+        this.cdr.detectChanges();
+    }
+
+    // Volta para o slide anterior
+    prevSlide(): void {
+        this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
+        this.cdr.detectChanges();
     }
 }
