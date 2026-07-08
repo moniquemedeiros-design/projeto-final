@@ -1,0 +1,72 @@
+<nav class="navbar">
+    <div class="logo">
+        <span class="emoji">🌱</span> MentalHealth Connect
+    </div>
+
+    <button class="menu-toggle" (click)="toggleMenu()" [class.open]="isMenuOpen" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <ul class="nav-links" [class.show]="isMenuOpen">
+        <li><a routerLink="/home" (click)="toggleMenu()">Home</a></li>
+        <li><a routerLink="/dashboard" (click)="toggleMenu()" class="active">Dashboard</a></li>
+        <li><a routerLink="/biblioteca" (click)="toggleMenu()">Biblioteca</a></li>
+        <li><a routerLink="/atendimentos" (click)="toggleMenu()">Atendimentos</a></li>
+        <li><a routerLink="/consulta" (click)="toggleMenu()">Consultas</a></li>
+        <li><a routerLink="/login" (click)="toggleMenu()">Logout</a></li>
+    </ul>
+</nav>
+
+<main class="container">
+    <h2 class="page-title">Agendamento de Consultas</h2>
+    <p class="page-subtitle">Encontre um profissional e selecione o melhor horário para o seu atendimento.</p>
+
+    <div class="search-box">
+        <input type="text" [(ngModel)]="termoPesquisa" (input)="filtrarProfissionais()"
+            placeholder="🔎 Pesquise por profissional ou especialidade..." />
+    </div>
+
+    <div class="main-content">
+        <section class="professionals-grid">
+            <div *ngFor="let prof of profissionaisFiltrados" class="prof-card"
+                [class.selected]="profissionalSelecionado?.id === prof.id" (click)="selecionarProfissional(prof)">
+                <div class="card-header">
+                    <span class="prof-avatar">{{ prof.avatar }}</span>
+                    <span class="status-badge">Disponível</span>
+                </div>
+                <h3>{{ prof.nome }}</h3>
+                <p class="especialidade">{{ prof.especialidade }}</p>
+                <button class="select-btn">Ver Agenda</button>
+            </div>
+        </section>
+
+        <section class="calendar-section">
+            <h3>Agenda e Horários</h3>
+
+            <div *ngIf="!profissionalSelecionado" class="alert-box">
+                <p>👋 Escolha um profissional ao lado para carregar as datas disponíveis no calendário.</p>
+            </div>
+
+            <div *ngIf="profissionalSelecionado" class="calendar-booking">
+                <p class="booking-target">Profissional selecionado: <strong>{{ profissionalSelecionado.nome }}</strong>
+                </p>
+
+                <div class="date-picker-box">
+                    <label for="datas">Selecione uma data disponível:</label>
+                    <select id="datas" [(ngModel)]="dataSelecionada" class="custom-select">
+                        <option value="" disabled selected>Clique para abrir os dias</option>
+                        <option *ngFor="let data of profissionalSelecionado.agendaDisponivel" [value]="data">
+                            {{ data | date:'dd/MM/yyyy' }} - Horário Comercial
+                        </option>
+                    </select>
+                </div>
+
+                <button class="confirm-btn" [disabled]="!dataSelecionada" (click)="marcarConsulta()">
+                    Confirmar Agendamento
+                </button>
+            </div>
+        </section>
+    </div>
+</main>

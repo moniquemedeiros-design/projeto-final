@@ -18,19 +18,30 @@
         <form>
 
             <label>E-mail</label>
-            <input type="email" placeholder="Digite seu e-mail">
+            <input type="email" [(ngModel)]="email" name="email" placeholder="Digite seu e-mail">
 
-            <label>Senha</label>
-            <input type="password" placeholder="Digite sua senha">
+            <div class="senha-container">
 
-            <div class="lgpd">
-                <input type="checkbox">
-                <span>Aceito os termos da LGPD</span>
+                <input [type]="mostrarSenha ? 'text' : 'password'" [(ngModel)]="senha" name="senha"
+                    placeholder="Digite sua senha">
+
+                <i class="bi" [class.bi-eye]="mostrarSenha" [class.bi-eye-slash]="!mostrarSenha"
+                    (click)="alternarSenha()">
+                </i>
             </div>
 
-            <button type="submit">Entrar</button>
+            <div class="lgpd">
+                <input type="checkbox" [(ngModel)]="aceitouTermos" name="Termos">
+                <span>Li e concordo com os Termos de Uso e com a Política de Privacidade</span>
+            </div>
 
-            <a href="#">Esqueci minha senha</a><br>
+            <button type="button" (click)="entrar()">Entrar</button>
+
+            <p class="erro" *ngIf="mensagemErro">
+                {{ mensagemErro }}
+            </p>
+
+            <a href="#">Esqueci minha senha</a>
             <a href="#">Criar conta</a>
 
         </form>

@@ -1,1 +1,66 @@
-<p>atendimento works!</p>
+<nav class="navbar">
+    <div class="logo"><span class="emoji">🌱</span> MentalHealth Connect</div>
+
+    <button class="menu-toggle" (click)="toggleMenu()" [class.open]="isMenuOpen" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <ul class="nav-links" [class.show]="isMenuOpen">
+        <li><a routerLink="/home" (click)="toggleMenu()">Home</a></li>
+        <li><a routerLink="/dashboard" (click)="toggleMenu()">Dashboard</a></li>
+        <li><a routerLink="/biblioteca" (click)="toggleMenu()">Biblioteca</a></li>
+        <li><a routerLink="/atendimentos" (click)="toggleMenu()" class="active">Atendimentos</a></li>
+        <li><a routerLink="/consulta" (click)="toggleMenu()">Consultas</a></li>
+        <li><a routerLink="/login" (click)="toggleMenu()">Logout</a></li>
+    </ul>
+</nav>
+
+<main class="chat-container">
+    <header class="chat-header">
+        <div class="prof-profile">
+            <div class="avatar-container">
+                <span class="avatar-icon">👨‍⚕️</span>
+                <span class="online-indicator"></span>
+            </div>
+            <div class="prof-info">
+                <h3>Dr. Carlos Silva</h3>
+                <p>Psicólogo Clínico — <span class="status-text">Online</span></p>
+            </div>
+        </div>
+
+        <button class="video-btn">
+            <span class="video-icon">📹</span> Iniciar Chamada de Vídeo
+        </button>
+    </header>
+
+    <section class="chat-messages">
+        <div class="message-group">
+            <div class="message received">
+                <div class="message-content">
+                    Olá! Como você tem se sentido desde a nossa última conversa?
+                </div>
+                <span class="message-time">14:02</span>
+            </div>
+
+            <div class="message sent">
+                <div class="message-content">
+                    Olá, Doutor. Tive uma semana um pouco ansiosa, mas consegui aplicar os exercícios de respiração que
+                    o senhor me passou.
+                </div>
+                <span class="message-time">14:05</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="chat-input-area">
+        <div class="input-wrapper">
+            <input type="text" placeholder="Digite sua mensagem para o profissional..." aria-label="Mensagem" />
+            <button class="send-btn">
+                <span>Enviar</span>
+                <span class="send-icon">🚀</span>
+            </button>
+        </div>
+    </footer>
+</main>

@@ -115,215 +115,201 @@ body {
     /* Fundo sólido ao passar o rato */
 }
 
-/* Layout Geral do Chat Container estilo "App Dedicado" */
-.chat-container {
-    max-width: 1000px;
-    margin: 30px auto;
-    background-color: var(--branco);
-    border-radius: var(--radius-chat);
-    box-shadow: 0 10px 30px rgba(6, 59, 111, 0.05);
-    border: 1px solid var(--borda-suave);
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh - 140px);
-    overflow: hidden;
+.container {
+    padding: 20px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Cabeçalho superior refinado */
-.chat-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 30px;
-    border-bottom: 1px solid var(--borda-suave);
-    background-color: var(--branco);
-}
-
-.prof-profile {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.avatar-container {
-    position: relative;
-    background-color: var(--azul-claro);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-}
-
-.online-indicator {
-    position: absolute;
-    bottom: 2px;
-    right: 2px;
-    width: 12px;
-    height: 12px;
-    background-color: #38a169;
-    border: 2px solid var(--branco);
-    border-radius: 50%;
-}
-
-.prof-info h3 {
-    margin: 0;
+.page-title {
     color: var(--azul-escuro);
-    font-size: 1.15rem;
+    font-size: 1.8rem;
+    margin: 30px 0 5px;
 }
 
-.prof-info p {
-    margin: 2px 0 0 0;
-    color: var(--cinza-subtitulo);
-    font-size: 0.85rem;
+.page-subtitle {
+    color: #666;
+    margin: 0 0 35px 0;
+    font-size: 1rem;
 }
 
-.status-text {
-    color: #38a169;
-    font-weight: bold;
+.search-box input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 15px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+    margin-bottom: 30px;
 }
 
-/* Botão Modernizado de Chamada de Vídeo */
-.video-btn {
-    background-color: #2b6cb0;
-    color: var(--branco);
-    border: none;
-    padding: 12px 24px;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    cursor: pointer;
+.search-box input:focus {
+    border-color: var(--azul-principal);
+}
+
+.main-content {
     display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.2s ease;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
-.video-btn:hover {
-    background-color: var(--azul-escuro);
-    transform: translateY(-1px);
-}
-
-/* Corpo do Feed de Conversa */
-.chat-messages {
-    flex: 1;
-    padding: 30px;
-    background-color: #fcfdfe;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-}
-
-.message-group {
+.professionals-grid {
+    flex: 1.2;
+    min-width: 320px;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-/* Balões de Mensagem Estilizados */
-.message {
-    max-width: 70%;
+.prof-card {
+    background: var(--branco);
+    border: 2px solid #eef4f8;
+    border-radius: var(--radius);
+    padding: 25px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 8px 24px rgba(6, 59, 111, 0.03);
+}
+
+.prof-card:hover {
+    border-color: var(--azul-principal);
+    transform: translateY(-2px);
+}
+
+.prof-card.selected {
+    border-color: var(--azul-principal);
+    background-color: #f0f7ff;
+}
+
+.card-header {
     display: flex;
-    flex-direction: column;
-    animation: fadeIn 0.3s ease-out;
-}
-
-.message-content {
-    padding: 14px 20px;
-    font-size: 0.98rem;
-    line-height: 1.5;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
-}
-
-/* Quando o médico manda (Alinhado à Esquerda) */
-.message.received {
-    align-self: flex-start;
-}
-
-.message.received .message-content {
-    background-color: var(--azul-claro);
-    color: var(--azul-escuro);
-    border-radius: 0px 18px 18px 18px;
-}
-
-/* Quando você manda (Alinhado à Direita) */
-.message.sent {
-    align-self: flex-end;
-}
-
-.message.sent .message-content {
-    background-color: var(--azul-principal);
-    color: var(--branco);
-    border-radius: 18px 18px 0px 18px;
-}
-
-.message-time {
-    font-size: 0.75rem;
-    color: var(--cinza-subtitulo);
-    margin-top: 5px;
-    padding: 0 5px;
-}
-
-.message.sent .message-time {
-    align-self: flex-end;
-}
-
-/* Área de digitação fixa e limpa */
-.chat-input-area {
-    padding: 20px 30px;
-    background-color: var(--branco);
-    border-top: 1px solid var(--borda-suave);
-}
-
-.input-wrapper {
-    display: flex;
-    gap: 15px;
-    background-color: #f7fafc;
-    padding: 6px 6px 6px 18px;
-    border-radius: 15px;
-    border: 1px solid var(--borda-suave);
+    justify-content: space-between;
     align-items: center;
+    margin-bottom: 12px;
 }
 
-.input-wrapper input {
-    flex: 1;
-    border: none;
-    background: transparent;
-    padding: 10px 0;
-    font-size: 0.98rem;
-    color: var(--cinza-texto);
-    outline: none;
+.prof-avatar {
+    font-size: 2.2rem;
 }
 
-/* Botão de enviar moderno */
-.send-btn {
+.status-badge {
+    background-color: #e6f4ea;
+    color: #137333;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.prof-card h3 {
+    color: var(--azul-escuro);
+    margin: 0 0 5px 0;
+    font-size: 1.3rem;
+}
+
+.especialidade {
+    color: #475569;
+    font-size: 0.95rem;
+    margin: 0 0 15px 0;
+}
+
+.select-btn {
     background-color: var(--azul-principal);
     color: var(--branco);
     border: none;
     padding: 10px 20px;
-    border-radius: 10px;
-    font-weight: 600;
+    border-radius: 12px;
+    font-weight: bold;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
     transition: background-color 0.2s;
 }
 
-.send-btn:hover {
+.prof-card:hover .select-btn,
+.prof-card.selected .select-btn {
     background-color: var(--azul-escuro);
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(5px);
-    }
+.calendar-section {
+    flex: 1;
+    min-width: 320px;
+    background: var(--branco);
+    border: 2px solid #eef4f8;
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: 0 8px 24px rgba(6, 59, 111, 0.03);
+    height: fit-content;
+}
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.calendar-section h3 {
+    color: var(--azul-escuro);
+    margin-top: 0;
+    border-bottom: 2px solid #eef4f8;
+    padding-bottom: 15px;
+}
+
+.alert-box {
+    color: #64748b;
+    font-style: italic;
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px dashed #cbd5e1;
+    text-align: center;
+}
+
+.booking-target {
+    color: #334155;
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+.date-picker-box {
+    margin-bottom: 30px;
+}
+
+.date-picker-box label {
+    display: block;
+    font-weight: bold;
+    color: var(--azul-escuro);
+    margin-bottom: 10px;
+}
+
+.custom-select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: 2px solid #cbd5e1;
+    background-color: var(--branco);
+    font-size: 0.95rem;
+    outline: none;
+    color: #334155;
+}
+
+.custom-select:focus {
+    border-color: var(--azul-principal);
+}
+
+.confirm-btn {
+    width: 100%;
+    background-color: #24a148;
+    color: var(--branco);
+    border: none;
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.confirm-btn:hover:not(:disabled) {
+    background-color: #1c7e36;
+}
+
+.confirm-btn:disabled {
+    background-color: #cbd5e1;
+    color: #94a3b8;
+    cursor: not-allowed;
 }
