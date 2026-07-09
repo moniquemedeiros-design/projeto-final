@@ -1,11 +1,11 @@
 /* ==========================================================================
-   VARIÁVEIS GLOBAIS E IDENTIDADE VISUAL (Cores Sólidas sem Transparência)
+   VARIÁVEIS GLOBAIS E IDENTIDADE VISUAL
    ========================================================================== */
+
 :root {
     --azul-principal: #0f5b9e;
-    /* Azul oficial da logo */
     --azul-escuro: #063b6f;
-    /* Azul escuro do botão entrar */
+    --verde-principal: #035e39;
     --branco: #ffffff;
     --bg-fundo: #f4f8fb;
     --radius: 25px;
@@ -13,168 +13,200 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-fundo) !important;
+    background-color: var(--bg-fundo);
     margin: 0;
     padding: 0;
     color: #333;
 }
 
 /* ==========================================================================
-   NAVBAR (BARRA SUPERIOR) COM DEGRADÊ SÓLIDO
+   NAVBAR
    ========================================================================== */
+
 .navbar {
-    display: flex !important;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    /* Cor sólida de segurança caso o navegador falhe no linear-gradient */
-    background-color: #0f5b9e !important;
-    background: linear-gradient(135deg, #0f5b9e 0%, #035e39 100%) !important;
+    background: linear-gradient(135deg, #0f5b9e 0%, #035e39 100%);
     padding: 15px 5%;
-    color: white !important;
+    color: white;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
 }
 
 .logo {
-    font-size: 1.3rem;
-    font-weight: bold;
     display: flex;
     align-items: center;
     gap: 8px;
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 
-/* ==========================================================================
-   BOTÃO HAMBÚRGUER (LINHAS BRANCAS)
-   ========================================================================== */
 .menu-toggle {
-    display: flex !important;
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
     width: 30px;
     height: 22px;
-    background-color: transparent !important;
-    /* O botão em si não tem fundo, apenas as linhas internas */
-    border: none !important;
+    border: none;
+    background: none;
     cursor: pointer;
-    padding: 0;
 }
 
 .menu-toggle span {
     width: 30px;
     height: 3px;
-    background-color: #ffffff !important;
-    /* Força as linhas a serem brancas sólidas */
+    background: #fff;
     border-radius: 10px;
-    transition: all 0.3s ease-in-out;
+    transition: .3s;
 }
 
 /* ==========================================================================
-   MENU GAVETA LATERAL (TOTALMENTE OPACO / SEM TRANSPARÊNCIA)
+   MENU
    ========================================================================== */
+
 .nav-links {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 100%;
     right: 0;
-    /* Degradê 100% opaco e sólido para cobrir as imagens do carrossel por baixo */
-    background-color: #0f5b9e !important;
-    background: linear-gradient(135deg, #0f5b9e 0%, #035e39 100%) !important;
+    top: 100%;
     width: 220px;
     list-style: none;
     padding: 15px;
     margin: 0;
-    border-radius: 0 0 0 var(--radius);
-    box-shadow: -4px 4px 15px rgba(0, 0, 0, 0.3) !important;
-    z-index: 9999 !important;
-    /* Fica sempre à frente de tudo */
+    background: linear-gradient(135deg, #0f5b9e, #035e39);
+    border-radius: 0 0 0 25px;
+    box-shadow: -4px 4px 15px rgba(0, 0, 0, .25);
 }
 
 .nav-links.show {
-    display: flex !important;
+    display: flex;
+}
+
+.nav-links li {
+    list-style: none;
 }
 
 .nav-links li a {
-    color: #ffffff !important;
-    text-decoration: none;
-    padding: 10px 15px;
     display: block;
-    font-weight: 500;
-    border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.2) !important;
-    /* Fundo ligeiramente mais escuro para os links se destacarem */
-    margin-bottom: 5px;
+    padding: 12px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 12px;
+    transition: .3s;
 }
 
 .nav-links li a:hover,
 .nav-links li a.active {
-    color: #ffffff !important;
-    background-color: #063b6f !important;
-    /* Fundo sólido ao passar o rato */
+    background: #063b6f;
 }
 
+/* ==========================================================================
+   CONTAINER
+   ========================================================================== */
+
 .container {
-    padding: 20px 5%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
+    padding: 20px 5%;
 }
 
 .page-title {
+    font-size: 2rem;
     color: var(--azul-escuro);
-    font-size: 1.8rem;
-    margin: 30px 0 5px;
+    margin-bottom: 8px;
 }
 
 .page-subtitle {
     color: #666;
-    margin: 0 0 35px 0;
-    font-size: 1rem;
+    margin-bottom: 30px;
 }
+
+/* ==========================================================================
+   CATEGORIAS
+   ========================================================================== */
 
 .categories-bar {
     display: flex;
     gap: 12px;
-    margin-bottom: 35px;
     overflow-x: auto;
+    margin-bottom: 30px;
     padding-bottom: 8px;
 }
 
 .category-btn {
-    border: none !important;
-    padding: 8px 16px;
-    font-weight: bold;
-    font-size: 1.1rem;
+    border: none;
+    background: none;
     cursor: pointer;
-    white-space: nowrap;
+    font-weight: bold;
+    font-size: 1rem;
     background: linear-gradient(135deg, #0f5b9e, #035e39);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
-    transform: transform 0.2s, opacity 0.2s;
+    transition: .3s;
 }
 
 .category-btn:hover,
 .category-btn.active {
     transform: scale(1.05);
-    opacity: 0.8;
 }
+
+/* ==========================================================================
+   GRID
+   ========================================================================== */
 
 .library-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
     margin-bottom: 40px;
 }
 
+/* ==========================================================================
+   CARD
+   ========================================================================== */
+
 .library-card {
-    background-color: var(--branco) !important;
-    border-radius: var(--radius);
-    padding: 25px;
-    box-shadow: 0 8px 24px rgba(6, 59, 111, 0.04);
+    background: #fff;
+    border-radius: 25px;
+    padding: 20px;
     border: 2px solid #eef4f8;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
     display: flex;
     flex-direction: column;
+    transition: .3s;
+}
+
+.library-card:hover {
+    transform: translateY(-6px);
+}
+
+.card-image {
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+    border-radius: 18px;
+    margin-bottom: 15px;
+    background: #f4f8fb;
+    border: 2px solid #eef4f8;
+}
+
+/* Garante que as imagens da API fiquem perfeitas e responsivas */
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .3s;
+    display: block;
+}
+
+.card-image img:hover {
+    transform: scale(1.05);
 }
 
 .card-header {
@@ -184,135 +216,139 @@ body {
     margin-bottom: 15px;
 }
 
-.card-emoji {
-    font-size: 2.2rem;
-}
-
 .card-badge {
-    background-color: #f1f5f9;
+    background: #eef4f8;
     color: var(--azul-escuro);
-    padding: 4px 14px;
-    border-radius: 15px;
-    font-size: 0.75rem;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: .75rem;
     font-weight: bold;
     text-transform: uppercase;
 }
 
 .library-card h3 {
+    margin: 0 0 12px;
     color: var(--azul-escuro);
-    margin: 0 0 10px 0;
     font-size: 1.25rem;
 }
 
 .library-card p {
-    color: #475569;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin: 0 0 20px 0;
+    color: #555;
+    line-height: 1.6;
     flex-grow: 1;
+    margin-bottom: 20px;
 }
 
 .download-btn {
-    background-color: var(--azul-principal) !important;
-    color: var(--branco) !important;
-    border: none !important;
-    padding: 12px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background: linear-gradient(135deg, #0f5b9e, #035e39);
+    color: #fff;
+    padding: 14px;
     border-radius: 15px;
     font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    text-align: center;
+    transition: .3s;
 }
 
 .download-btn:hover {
-    background-color: var(--azul-escuro) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(15, 91, 158, .25);
 }
 
 .empty-state {
     text-align: center;
-    color: #64748b;
-    padding: 50px 20px;
+    padding: 60px 20px;
+    color: #666;
     font-size: 1.1rem;
 }
 
+/* ==========================================================================
+   RESPONSIVO (MEDIA QUERIES)
+   ========================================================================== */
+
 @media (max-width: 768px) {
 
-    /* 1. Corrige o aviso de compatibilidade do VS Code */
-    .category-btn {
-        background-clip: text;
-        /* Corrige o erro de compatibilidade */
-    }
-
-    /* 2. Ajusta os espaçamentos das bordas no ecrã do telemóvel */
     .container {
-        padding: 15px 4% !important;
+        padding: 15px 4%;
     }
 
-    /* 3. Centraliza e reajusta o tamanho dos títulos principais */
     .page-title {
-        font-size: 1.5rem !important;
         text-align: center;
-        margin-top: 20px !important;
+        font-size: 1.6rem;
     }
 
     .page-subtitle {
-        font-size: 0.95rem !important;
         text-align: center;
-        margin-bottom: 25px !important;
+        font-size: .95rem;
+        margin-bottom: 25px;
     }
 
-    /* 4. Barra de categorias com rolagem lateral fluida por toque */
     .categories-bar {
-        display: flex !important;
-        overflow-x: auto !important;
-        /* Permite deslizar para o lado se as tags passarem do ecrã */
-        white-space: nowrap !important;
-        gap: 8px !important;
-        padding-bottom: 10px !important;
-        margin-bottom: 25px !important;
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 10px;
+        padding-bottom: 10px;
         scrollbar-width: none;
-        /* Esconde a barra feia no Firefox */
     }
 
     .categories-bar::-webkit-scrollbar {
         display: none;
-        /* Esconde a barra feia no Chrome/Safari */
     }
 
     .category-btn {
-        padding: 6px 12px !important;
-        font-size: 0.95rem !important;
         flex-shrink: 0;
-        /* Impede os botões de serem esmagados */
+        font-size: .95rem;
     }
 
-    /* 5. Transforma o Grid de Cards em uma lista vertical */
     .library-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        /* Empilha um debaixo do outro */
-        gap: 16px !important;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
 
     .library-card {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-        padding: 18px !important;
+        width: 100%;
+        padding: 18px;
+        box-sizing: border-box;
+    }
+
+    .card-image {
+        width: 100%;
+        height: 190px;
+        margin-bottom: 12px;
+    }
+
+    .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .card-header {
+        margin-bottom: 12px;
+    }
+
+    .card-badge {
+        font-size: .7rem;
+        padding: 5px 12px;
     }
 
     .library-card h3 {
-        font-size: 1.15rem !important;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
     }
 
     .library-card p {
-        font-size: 0.9rem !important;
-        margin-bottom: 15px !important;
+        font-size: .92rem;
+        line-height: 1.5;
+        margin-bottom: 15px;
     }
 
     .download-btn {
-        width: 100% !important;
-        padding: 14px !important;
-        font-size: 0.95rem !important;
+        width: 100%;
+        padding: 14px;
+        font-size: .95rem;
     }
 }

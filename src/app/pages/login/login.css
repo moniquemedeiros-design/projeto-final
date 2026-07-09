@@ -9,309 +9,430 @@ body {
     background: #edf5f9;
 }
 
+
+/* ================= CONTAINER PRINCIPAL ================= */
+
 .container {
+
     display: flex;
+
     width: 100%;
-    height: 100vh;
+
+    min-height: 100vh;
+
 }
+
+
+/* ================= LADO ESQUERDO ================= */
 
 .lado-esquerdo {
-    width: 50%;
+
+    flex: 1;
+
     background: linear-gradient(135deg, #5FA8D3, #1d5013);
+
     color: white;
+
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
+
     align-items: center;
-    padding: 50px;
+
+    text-align: center;
+
+    padding: clamp(30px, 5vw, 70px);
+
 }
+
 
 .logo {
-    width: 200px;
-    margin-bottom: 10px;
+
+    width: clamp(120px, 15vw, 200px);
+
+    margin-bottom: 20px;
+
 }
+
 
 .lado-esquerdo h1 {
-    font-size: 38px;
+
+    font-size: clamp(28px, 3vw, 38px);
+
     margin-bottom: 20px;
+
 }
+
 
 .lado-esquerdo p {
-    text-align: center;
-    font-size: 18px;
+
+    font-size: clamp(15px, 1.5vw, 18px);
+
     max-width: 450px;
+
+    line-height: 1.5;
+
 }
+
+
+
+/* ================= LADO DIREITO ================= */
+
 
 .lado-direito {
-    width: 50%;
+
+    flex: 1;
+
     background: white;
+
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
-    padding: 70px;
+
+    align-items: center;
+
+    padding: 40px;
+
 }
+
+
+.lado-direito form {
+
+    width: 100%;
+
+    max-width: 420px;
+
+}
+
+
 
 .lado-direito h2 {
-    font-size: 25px;
+
+    font-size: clamp(25px, 3vw, 30px);
+
     text-align: center;
+
     margin-bottom: 30px;
+
     font-weight: bold;
+
+
     background: linear-gradient(90deg, #2db475, #349bd6);
+
     -webkit-background-clip: text;
+
     -webkit-text-fill-color: transparent;
+
     background-clip: text;
+
 }
+
+
+
+/* ================= CAMPOS ================= */
+
 
 label {
+
     display: block;
+
     margin-top: 15px;
+
     margin-bottom: 5px;
+
+    color: #333;
+
 }
 
-input[type=email],
-input[type=password] {
+
+input[type="email"],
+
+input[type="password"] {
+
     width: 100%;
+
     padding: 14px;
+
     border-radius: 10px;
+
     border: 1px solid #ccc;
+
+    font-size: 16px;
+
+    outline: none;
+
 }
+
+
+input:focus {
+
+    border-color: #2db475;
+
+}
+
+
+
+/* ================= SENHA ================= */
+
+
+.senha-container {
+
+    position: relative;
+
+    width: 100%;
+
+}
+
+
+.senha-container input {
+
+    padding-right: 45px;
+
+}
+
+
+.senha-container i {
+
+    position: absolute;
+
+    right: 15px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 20px;
+
+    color: #666;
+
+    cursor: pointer;
+
+}
+
+
+.senha-container i:hover {
+
+    color: #2db475;
+
+}
+
+
+
+/* ================= LGPD ================= */
+
 
 .lgpd {
+
     display: flex;
+
     align-items: flex-start;
+
     gap: 8px;
+
     margin: 20px 0;
+
 }
+
+
+.lgpd input {
+
+    width: 16px;
+
+    height: 16px;
+
+    margin-top: 3px;
+
+}
+
 
 .lgpd span {
+
     font-size: 14px;
+
     line-height: 1.4;
-    text-align: left;
+
+    color: #555;
+
 }
 
-.lgpd input[type="checkbox"] {
-    margin-top: 3px;
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-}
+
+
+/* ================= BOTÃO ================= */
+
 
 button {
+
     width: 100%;
+
     padding: 15px;
+
     border: none;
+
     border-radius: 10px;
+
     background: #2db475;
+
     color: white;
+
     font-size: 18px;
+
     cursor: pointer;
+
+    transition: .3s;
+
 }
+
 
 button:hover {
-    background: #063a6fd8
+
+    background: #063a6f;
+
 }
 
+
+
+/* ================= LINKS ================= */
+
+
 a {
+
     color: #0b5ed7;
+
     text-decoration: none;
+
     display: block;
+
     text-align: center;
-    margin-top: 8px;
+
+    margin-top: 12px;
+
     font-size: 15px;
 
 }
 
+
+
+/* ================= ERRO ================= */
+
+
 .erro {
+
     color: #dc3545;
-    background-color: #f8d7da;
+
+    background: #f8d7da;
+
     border: 1px solid #f5c2c7;
+
     border-radius: 8px;
+
     padding: 10px;
+
     margin-top: 12px;
+
     text-align: center;
+
     font-size: 14px;
-    font-weight: 600px;
-}
 
-.senha-container {
-   position: relative;
-    width: 100%;
-}
-
-.senha-container input {
-    width: 100%;
-    padding: 14px 45px 14px 14px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    outline: none;
-}
-.senha-container input:focus {
-    border: 1px solid #2db475;
-    border-radius: 10px;
-    outline: none;
-}
-
-.senha-container i {
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
-    width: 22px;
-    text-align: center;
-    font-size: 20px;
-    cursor: pointer;
-    color: #666;
-}
-
-.senha-container i:hover {
-    color: #2db475;
-}
-
-/* ================= TABLETS ================= */
-
-@media screen and (max-width: 992px) {
-
-    .login-container {
-
-        width: 95%;
-
-        min-height: 650px;
-
-        display: flex;
-
-        flex-direction: row;
-
-    }
-
-    .lado-esquerdo {
-
-        width: 45%;
-
-        padding: 30px;
-
-    }
-
-    .lado-direito {
-
-        width: 55%;
-
-        padding: 40px;
-
-    }
-
-    .lado-esquerdo img {
-
-        width: 100%;
-
-        max-width: 280px;
-
-        height: auto;
-
-    }
-
-    .lado-direito h2 {
-
-        font-size: 30px;
-
-        text-align: center;
-
-    }
-
-    input {
-
-        width: 100%;
-
-    }
-
-    button {
-
-        width: 100%;
-
-    }
+    font-weight: bold;
 
 }
 
-/* ================= CELULARES ================= */
 
-@media screen and (max-width:768px) {
 
-    body {
+/* ================= TABLET ================= */
 
-        padding: 15px;
 
-    }
+@media(max-width:992px) {
 
-    .login-container {
 
-        width: 100%;
-
-        min-height: auto;
-
-        display: flex;
+    .container {
 
         flex-direction: column;
 
-        border-radius: 20px;
-
     }
+
 
     .lado-esquerdo {
 
-        width: 100%;
-
-        padding: 25px;
-
-        min-height: 220px;
+        min-height: 320px;
 
     }
 
-    .lado-esquerdo img {
-
-        width: 170px;
-
-        margin: auto;
-
-        display: block;
-
-    }
 
     .lado-direito {
 
-        width: 100%;
-
-        padding: 30px 25px;
+        padding: 40px 25px;
 
     }
+
+
+}
+
+
+
+/* ================= CELULAR ================= */
+
+
+@media(max-width:600px) {
+
+
+    .lado-esquerdo {
+
+        min-height: 250px;
+
+        padding: 25px;
+
+    }
+
+
+    .logo {
+
+        width: 110px;
+
+    }
+
+
+    .lado-direito {
+
+        padding: 30px 20px;
+
+    }
+
 
     .lado-direito h2 {
 
-        font-size: 28px;
-
-        text-align: center;
+        font-size: 26px;
 
     }
 
-    input {
 
-        height: 50px;
+    input {
 
         font-size: 15px;
 
     }
 
-    button {
 
-        height: 50px;
+    button {
 
         font-size: 16px;
 
     }
 
+
 }
 
-/* ================= CELULARES PEQUENOS ================= */
 
-@media screen and (max-width:480px) {
+
+/* ================= CELULAR PEQUENO ================= */
+
+
+@media(max-width:400px) {
+
 
     .lado-esquerdo {
 
@@ -319,46 +440,12 @@ a {
 
     }
 
-    .login-container {
-
-        width: 100%;
-
-    }
 
     .lado-direito {
 
-        width: 100%;
-
-        padding: 25px 18px;
+        min-height: 100vh;
 
     }
 
-    .lado-direito h2 {
-
-        font-size: 24px;
-
-    }
-
-    .logo {
-
-        width: 75px;
-
-        display: block;
-
-        margin: 0 auto 15px;
-
-    }
-
-    input {
-
-        font-size: 14px;
-
-    }
-
-    button {
-
-        font-size: 15px;
-
-    }
 
 }

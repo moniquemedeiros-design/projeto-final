@@ -34,7 +34,7 @@ export class BibliotecaComponent implements OnInit {
 
   // Faz a busca dinâmica batendo na rota do server.js
   buscarDadosDaApi() {
-    this.http.get<any[]>('http://localhost:3000/api/biblioteca').subscribe({
+    this.http.get<any[]>('http://localhost:3000/api').subscribe({
       next: (dados) => {
         this.todosArquivos = dados;
         this.arquivosFiltrados = dados; // Exibe todos ao carregar

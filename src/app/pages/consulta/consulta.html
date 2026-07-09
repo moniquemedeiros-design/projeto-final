@@ -23,9 +23,10 @@
     <h2 class="page-title">Agendamento de Consultas</h2>
     <p class="page-subtitle">Encontre um profissional e selecione o melhor horário para o seu atendimento.</p>
 
-    <div class="search-box">
+    <div class="search-container">
+        <i class="bi bi-search"></i>
         <input type="text" [(ngModel)]="termoPesquisa" (input)="filtrarProfissionais()"
-            placeholder="🔎 Pesquise por profissional ou especialidade..." />
+            placeholder="Pesquise por profissional ou especialidade..." />
     </div>
 
     <div class="main-content">

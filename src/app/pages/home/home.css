@@ -264,17 +264,14 @@ body {
 
 @media (max-width: 768px) {
 
-    /* Em vez de 'auto', vamos dar uma altura mínima para o container respirar */
     .carousel-container {
-        height: 220px !important;
+        height: 205px !important;
         position: relative;
-        /* Garante que os botões fiquem posicionados corretamente lá dentro */
         overflow: hidden;
     }
 
-    /* Ajuste da imagem para garantir que ela não quebre o tamanho do bloco */
     .carousel-container img {
-        width: 100% !important;
+        width: 100% !important; 
         height: 100% !important;
         object-fit: contain !important;
         /* Mantém a foto inteira e sem cortes */
@@ -294,7 +291,6 @@ body {
 
     .carousel-btn .seta {
         padding: 0 !important;
-        /* Remove o padding antigo que podia estar esmagando a seta */
         margin: 0 !important;
     }
 
