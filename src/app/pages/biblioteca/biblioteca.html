@@ -28,8 +28,7 @@
         <div class="library-card" *ngFor="let arquivo of arquivosFiltrados">
 
             <div class="card-header">
-                <img [src]="arquivo.imagemUrl" [alt]="arquivo.titulo"
-                    (error)="($event.target).src='assets/img/sem-imagem.png'">
+                <img [src]="arquivo.capa" width="200" [alt]="arquivo.titulo">
             </div>
 
             <div class="card-header">
@@ -37,7 +36,7 @@
             </div>
 
             <h3>{{ arquivo.titulo }}</h3>
-            <p>{{ arquivo.descricao }}</p>
+            <p>{{ arquivo.tipo }}</p>
 
             <a [href]="arquivo.linkConteudo" target="_blank" class="download-btn">Acessar Conteúdo</a>
 

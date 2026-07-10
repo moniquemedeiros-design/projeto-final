@@ -1,51 +1,75 @@
-<div class="container">
+<div class="login-container">
 
-    <div class="lado-esquerdo">
-        <img src="/img/logo.png" alt="Logo" class="logo">
+    <!-- LADO ESQUERDO -->
+    <section class="lado-esquerdo">
+
+        <img src="/img/logo.png" alt="MentalHealth Connect" class="logo">
 
         <h1>MentalHealth Connect</h1>
 
         <p>
-            Sua saúde mental importa.
+            Sua saúde mental importa.<br>
             Conectando pessoas a profissionais especializados.
         </p>
-    </div>
 
-    <div class="lado-direito">
+    </section>
 
-        <h2>Iniciando Sessão</h2>
+    <!-- LADO DIREITO -->
+    <section class="lado-direito">
 
-        <form>
+        <div class="login-box">
 
-            <label>E-mail</label>
-            <input type="email" [(ngModel)]="email" name="email" placeholder="Digite seu e-mail">
+            <h2>Iniciando Sessão</h2>
 
-            <div class="senha-container">
+            <form>
 
-                <input [type]="mostrarSenha ? 'text' : 'password'" [(ngModel)]="senha" name="senha"
-                    placeholder="Digite sua senha">
+                <label for="email">E-mail</label>
 
-                <i class="bi" [class.bi-eye]="mostrarSenha" [class.bi-eye-slash]="!mostrarSenha"
-                    (click)="alternarSenha()">
-                </i>
-            </div>
+                <input id="email" type="email" [(ngModel)]="email" name="email" placeholder="Digite seu e-mail">
 
-            <div class="lgpd">
-                <input type="checkbox" [(ngModel)]="aceitouTermos" name="Termos">
-                <span>Li e concordo com os Termos de Uso e com a Política de Privacidade</span>
-            </div>
+                <label for="senha">Senha</label>
 
-            <button type="button" (click)="entrar()">Entrar</button>
+                <div class="senha-container">
 
-            <p class="erro" *ngIf="mensagemErro">
-                {{ mensagemErro }}
-            </p>
+                    <input id="senha" [type]="mostrarSenha ? 'text' : 'password'" [(ngModel)]="senha" name="senha"
+                        placeholder="Digite sua senha">
 
-            <a href="#">Esqueci minha senha</a>
-            <a href="#">Criar conta</a>
+                    <i class="bi" [class.bi-eye]="mostrarSenha" [class.bi-eye-slash]="!mostrarSenha"
+                        (click)="alternarSenha()">
+                    </i>
 
-        </form>
+                </div>
 
-    </div>
+                <div class="lgpd">
+
+                    <input type="checkbox" id="lgpd" [(ngModel)]="aceitouTermos" name="aceitouTermos">
+
+                    <label for="lgpd">
+                        Li e concordo com os Termos de Uso e com a Política de Privacidade.
+                    </label>
+
+                </div>
+
+                <button type="button" (click)="entrar()">
+                    Entrar
+                </button>
+
+                <p class="erro" *ngIf="mensagemErro">
+                    {{ mensagemErro }}
+                </p>
+
+                <div class="links">
+
+                    <a href="#">Esqueci minha senha</a>
+
+                    <a href="#">Criar conta</a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
 
 </div>

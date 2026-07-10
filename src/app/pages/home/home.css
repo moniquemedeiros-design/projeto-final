@@ -262,44 +262,100 @@ body {
     margin: 0;
 }
 
+
 @media (max-width: 768px) {
 
     .carousel-container {
-        height: 205px !important;
-        position: relative;
+
+        width: 100%;
+
+        height: auto !important;
+
+        aspect-ratio: 16 / 9;
+
         overflow: hidden;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
     }
 
     .carousel-container img {
-        width: 100% !important; 
-        height: 100% !important;
-        object-fit: contain !important;
-        /* Mantém a foto inteira e sem cortes */
+
+        width: 100%;
+
+        height: 100%;
+
+        object-fit: contain;
+
+        display: block;
+
     }
 
-    /* Botões menores e visíveis */
+    /* Botões */
+
     .carousel-btn {
-        width: 32px !important;
-        height: 32px !important;
-        display: flex !important;
-        /* Força os botões a aparecerem */
+
+        width: 35px;
+
+        height: 35px;
+
+        display: flex;
+
         align-items: center;
+
         justify-content: center;
-        z-index: 10 !important;
-        /* Coloca as setas na frente da imagem para o clique funcionar */
+
+        z-index: 10;
+
     }
 
     .carousel-btn .seta {
-        padding: 0 !important;
-        margin: 0 !important;
+
+        padding: 0;
+
+        margin: 0;
+
+        font-size: 18px;
+
     }
 
-    /* Posicionamento das setas nas pontas */
     .prev {
-        left: 10px !important;
+
+        left: 10px;
+
     }
 
     .next {
-        right: 10px !important;
+
+        right: 10px;
+
+    }
+
+    @media (max-width: 480px) {
+
+        .carousel-container {
+
+            aspect-ratio: 16 / 10;
+
+        }
+
+        .carousel-btn {
+
+            width: 30px;
+
+            height: 30px;
+
+        }
+
+        .carousel-btn .seta {
+
+            font-size: 16px;
+
+        }
+
     }
 }

@@ -9,7 +9,7 @@ const bibliotecaRoutes = require('./routes/bibliotecaRoutes');
 app.use(cors());
 app.use(express.json());
 
-app.use('/api', bibliotecaRoutes);
+app.use('/biblioteca', bibliotecaRoutes);
 
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
