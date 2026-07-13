@@ -2,6 +2,7 @@ import { Component, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
+
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -21,4 +22,5 @@ export class DashboardComponent {
     this.isMenuOpen = !this.isMenuOpen;
     this.cdr.detectChanges(); // Garante a atualização imediata na tela
   }
+
 }

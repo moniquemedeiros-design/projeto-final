@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router'; // <-- Importação crucial para o menu funcionar
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-home',
@@ -61,4 +61,6 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
         this.cdr.detectChanges();
     }
+
+
 }

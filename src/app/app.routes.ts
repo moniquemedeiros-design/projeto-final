@@ -5,6 +5,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard';
 import { Atendimento } from './pages/atendimento/atendimento';
 import { ConsultaComponent } from './pages/consulta/consulta';
 import { BibliotecaComponent } from './pages/biblioteca/biblioteca';
+import { authGuard } from './guards/auth-guard';
 
 
 export const routes: Routes = [
@@ -18,23 +19,28 @@ export const routes: Routes = [
     },
     {
         path: 'home',
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate: [authGuard]
     },
     {
         path: 'dashboard',
-        component: DashboardComponent
+        component: DashboardComponent,
+        canActivate: [authGuard]
     },
     {
         path: 'atendimentos',
-        component: Atendimento
+        component: Atendimento,
+        canActivate: [authGuard]
     },
     {
         path: 'consulta',
-        component: ConsultaComponent
+        component: ConsultaComponent,
+        canActivate: [authGuard]
     },
     {
         path: 'biblioteca',
-        component: BibliotecaComponent
+        component: BibliotecaComponent,
+        canActivate: [authGuard]
     },
 
 

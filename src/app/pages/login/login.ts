@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -10,13 +10,15 @@ import { CommonModule } from '@angular/common';
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   aceitouTermos: boolean = false;
   mensagemErro: string = '';
   mostrarSenha: boolean = false;
   email: string = '';
   senha: string = '';
+
+  loginAutomatico = false;
 
   constructor(private router: Router) { }
 
@@ -40,6 +42,12 @@ export class LoginComponent {
 
   alternarSenha() {
     this.mostrarSenha = !this.mostrarSenha;
+  }
+
+  ngOnInit(): void {
+
+    localStorage.removeItem('logado');
+
   }
 
 }

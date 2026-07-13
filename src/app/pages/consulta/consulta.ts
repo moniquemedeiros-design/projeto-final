@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
+
 @Component({
   selector: 'app-consulta',
   standalone: true,
@@ -66,6 +67,9 @@ export class ConsultaComponent implements OnInit {
       alert(`Consulta agendada com sucesso com ${this.profissionalSelecionado.nome}!`);
     }
   }
+
+
+
 }
 
 

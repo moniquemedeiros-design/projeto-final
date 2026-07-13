@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
+
 @Component({
   selector: 'app-atendimento',
   imports: [RouterLink],
@@ -14,4 +15,7 @@ export class Atendimento {
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
   }
+
+  
+ 
 }

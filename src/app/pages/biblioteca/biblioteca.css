@@ -1,11 +1,11 @@
 /* ==========================================================================
-   VARIÁVEIS GLOBAIS E IDENTIDADE VISUAL
+   VARIÁVEIS GLOBAIS E IDENTIDADE VISUAL (Cores Sólidas sem Transparência)
    ========================================================================== */
-
 :root {
     --azul-principal: #0f5b9e;
+    /* Azul oficial da logo */
     --azul-escuro: #063b6f;
-    --verde-principal: #035e39;
+    /* Azul escuro do botão entrar */
     --branco: #ffffff;
     --bg-fundo: #f4f8fb;
     --radius: 25px;
@@ -13,96 +13,106 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-fundo);
+    background-color: var(--bg-fundo) !important;
     margin: 0;
     padding: 0;
     color: #333;
 }
 
 /* ==========================================================================
-   NAVBAR
+   NAVBAR (BARRA SUPERIOR) COM DEGRADÊ SÓLIDO
    ========================================================================== */
-
 .navbar {
-    display: flex;
+    display: flex !important;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(135deg, #0f5b9e 0%, #035e39 100%);
+    /* Cor sólida de segurança caso o navegador falhe no linear-gradient */
+    background-color: #0f5b9e !important;
+    background: linear-gradient(135deg, #0f5b9e 0%, #035e39 100%) !important;
     padding: 15px 5%;
-    color: white;
+    color: white !important;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
 }
 
 .logo {
+    font-size: 1.3rem;
+    font-weight: bold;
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 1.3rem;
-    font-weight: bold;
 }
 
+/* ==========================================================================
+   BOTÃO HAMBÚRGUER (LINHAS BRANCAS)
+   ========================================================================== */
 .menu-toggle {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     justify-content: space-around;
     width: 30px;
     height: 22px;
-    border: none;
-    background: none;
+    background-color: transparent !important;
+    /* O botão em si não tem fundo, apenas as linhas internas */
+    border: none !important;
     cursor: pointer;
+    padding: 0;
 }
 
 .menu-toggle span {
     width: 30px;
     height: 3px;
-    background: #fff;
+    background-color: #ffffff !important;
+    /* Força as linhas a serem brancas sólidas */
     border-radius: 10px;
-    transition: .3s;
+    transition: all 0.3s ease-in-out;
 }
 
 /* ==========================================================================
-   MENU
+   MENU GAVETA LATERAL (TOTALMENTE OPACO / SEM TRANSPARÊNCIA)
    ========================================================================== */
-
 .nav-links {
     display: none;
     flex-direction: column;
     position: absolute;
-    right: 0;
     top: 100%;
+    right: 0;
+    /* Degradê 100% opaco e sólido para cobrir as imagens do carrossel por baixo */
+    background-color: #0f5b9e !important;
+    background: linear-gradient(135deg, #0f5b9e 0%, #035e39 100%) !important;
     width: 220px;
     list-style: none;
     padding: 15px;
     margin: 0;
-    background: linear-gradient(135deg, #0f5b9e, #035e39);
-    border-radius: 0 0 0 25px;
-    box-shadow: -4px 4px 15px rgba(0, 0, 0, .25);
+    border-radius: 0 0 0 var(--radius);
+    box-shadow: -4px 4px 15px rgba(0, 0, 0, 0.3) !important;
+    z-index: 9999 !important;
+    /* Fica sempre à frente de tudo */
 }
 
 .nav-links.show {
-    display: flex;
-}
-
-.nav-links li {
-    list-style: none;
+    display: flex !important;
 }
 
 .nav-links li a {
-    display: block;
-    padding: 12px;
+    color: #ffffff !important;
     text-decoration: none;
-    color: white;
-    font-weight: bold;
-    border-radius: 12px;
-    transition: .3s;
+    padding: 10px 15px;
+    display: block;
+    font-weight: 500;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    /* Fundo ligeiramente mais escuro para os links se destacarem */
+    margin-bottom: 5px;
 }
 
 .nav-links li a:hover,
 .nav-links li a.active {
-    background: #063b6f;
+    color: #ffffff !important;
+    background-color: #063b6f !important;
+    /* Fundo sólido ao passar o rato */
 }
 
 /* ==========================================================================

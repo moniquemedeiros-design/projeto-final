@@ -344,28 +344,81 @@ body {
 
 }
 
+/* ================= LOGAR AUTOMATICAMENTE ================= */
+
+.auto-login {
+    display: flex;
+    justify-content: flex-end;
+    /* Alinha à direita */
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0 15px;
+    padding-right: 5px;
+}
+
+.auto-login-text {
+    font-size: 13px;
+    color: #555;
+    font-weight: 500;
+}
+
+/* Switch menor */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 38px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+    background: #cfd8dc;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 2px;
+    top: 2px;
+    background: #fff;
+    border-radius: 50%;
+    transition: .3s;
+}
+
+.switch input:checked+.slider {
+    background: #0f5b9e;
+}
+
+.switch input:checked+.slider::before {
+    transform: translateX(18px);
+}
+
 /* ==========================================================
-   TABLET
+   NOTEBOOK
 ========================================================== */
 
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
 
-    .container {
-        grid-template-columns: 1fr;
+    .login-container {
+        grid-template-columns: 1fr 1fr;
     }
 
-    .lado-esquerdo {
-        min-height: 320px;
-        padding: 40px 30px;
-    }
-
+    .lado-esquerdo,
     .lado-direito {
-        min-height: auto;
-        padding: 40px 30px;
-    }
-
-    .login-box {
-        max-width: 500px;
+        padding: 40px;
     }
 
     .logo {
@@ -379,56 +432,130 @@ body {
     .lado-esquerdo p {
         font-size: 17px;
     }
-}
-
-/* ==========================================================
-   CELULAR
-========================================================== */
-
-@media (max-width: 768px) {
-
-    .lado-esquerdo {
-        min-height: 280px;
-        padding: 30px 20px;
-    }
-
-    .logo {
-        width: 120px;
-    }
-
-    .lado-esquerdo h1 {
-        font-size: 30px;
-        margin-bottom: 15px;
-    }
-
-    .lado-esquerdo p {
-        font-size: 15px;
-        line-height: 1.6;
-    }
-
-    .lado-direito {
-        padding: 30px 20px;
-    }
 
     .login-box {
-        max-width: 100%;
+        width: 100%;
+        max-width: 430px;
+        margin: auto;
     }
 
     .login-box h2 {
-        font-size: 28px;
-        margin-bottom: 30px;
+        font-size: 30px;
+    }
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (max-width: 992px) {
+
+    .login-container {
+        grid-template-columns: 1fr;
+    }
+
+    .lado-esquerdo {
+        min-height: 300px;
+        padding: 35px;
+    }
+
+    .lado-direito {
+        min-height: auto;
+        padding: 40px 30px;
+    }
+
+    .logo {
+        width: 140px;
+    }
+
+    .lado-esquerdo h1 {
+        font-size: 32px;
+    }
+
+    .lado-esquerdo p {
+        font-size: 16px;
+    }
+
+    .login-box {
+        width: 100%;
+        max-width: 500px;
+        margin: auto;
+    }
+
+    .login-box h2 {
+        font-size: 30px;
     }
 
     .login-box input[type="email"],
     .login-box input[type="password"],
     .login-box input[type="text"] {
         height: 50px;
-        font-size: 15px;
     }
 
     .login-box button {
         height: 50px;
+    }
+}
+
+/* ==========================================================
+   CELULAR
+========================================================== */
+
+@media (max-width:768px) {
+
+    .login-container {
+        grid-template-columns: 1fr;
+    }
+
+    .lado-esquerdo {
+        display: none;
+    }
+
+    .lado-direito {
+        width: 100%;
+        min-height: 100vh;
+        padding: 30px 22px;
+    }
+
+    .login-box {
+        width: 100%;
+        max-width: 100%;
+        margin: auto;
+    }
+
+    .login-box h2 {
+        font-size: 27px;
+        margin-bottom: 25px;
+    }
+
+    .login-box input[type="email"],
+    .login-box input[type="password"],
+    .login-box input[type="text"] {
+        height: 48px;
+        font-size: 15px;
+    }
+
+    .senha-container i {
+        font-size: 20px;
+        right: 15px;
+    }
+
+    .login-box button {
+        height: 48px;
         font-size: 16px;
+    }
+
+    .lgpd {
+        gap: 8px;
+    }
+
+    .lgpd label {
+        font-size: 13px;
+    }
+
+    .links {
+        margin-top: 18px;
+        gap: 10px;
     }
 
     .links a {
@@ -440,23 +567,10 @@ body {
    CELULAR PEQUENO
 ========================================================== */
 
-@media (max-width: 480px) {
-
-    .lado-esquerdo {
-        display: none;
-    }
-
-    .container {
-        grid-template-columns: 1fr;
-    }
+@media (max-width:480px) {
 
     .lado-direito {
-        min-height: 100vh;
-        padding: 25px 18px;
-    }
-
-    .login-box {
-        max-width: 100%;
+        padding: 22px 15px;
     }
 
     .login-box h2 {
@@ -466,21 +580,22 @@ body {
     .login-box input[type="email"],
     .login-box input[type="password"],
     .login-box input[type="text"] {
-        height: 48px;
+        height: 46px;
         font-size: 14px;
     }
 
+    .senha-container i {
+        right: 14px;
+        font-size: 18px;
+    }
+
     .login-box button {
-        height: 48px;
+        height: 46px;
         font-size: 15px;
     }
 
     .lgpd label {
-        font-size: 13px;
-    }
-
-    .links {
-        gap: 10px;
+        font-size: 12px;
     }
 
     .links a {
